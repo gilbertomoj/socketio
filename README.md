@@ -4,16 +4,16 @@
 </h3>
 
 <p align="center">
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gilbertomoj/chatt">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/gilbertomoj/socketio">
 
   <a href="https://www.linkedin.com/in/eliasgcf/">
     <img alt="Made by" src="https://img.shields.io/badge/made%20by-Gilberto%20Medeiros-gree">
   </a>
 
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/gilbertomoj/chatt">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/gilbertomoj/socketio">
 
   <a href="https://github.com/EliasGcf/readme-template/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gilbertomoj/chatt">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/gilbertomoj/socketio">
   </a>
 
 </p>
@@ -47,7 +47,7 @@
 **Clone o projeto e acesse a pasta**
 
 ```bash
-$ git clone https://github.com/gilbertomoj/chatt.git && cd chatt
+$ git clone https://github.com/gilbertomoj/socketio.git && cd socketio
 ```
 
 **Siga as seguintes etapas**

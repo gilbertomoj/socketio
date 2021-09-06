@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>    <title>Document</title>
+    <style>
+        .chat{
+            width: auto;
+            height: 15rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forúm</h1>
+        <div id="chat" class="chat overflow-auto border border-info">
+
+        </div><br>
+        <input type="text" id="msg" class="form-control" placeholder="Insira a mensagem">
+        <input type="text" id="username" placeholder="Seu nome de usuário" class="form-control mt-3">
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button onclick="enviar()" class="btn btn-primary mt-3">Enviar</button>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+<script>
+        
+        var socket = io("http://localhost:3000")
+
+        socket.on("disconnect",()=>{
+            console.log("Desconectado");
+        });
+
+        socket.on("showmsg", (data)=>{
+            console.log(data);
+            var chat = document.getElementById("chat");
+            var p = document.createElement("p");
+            p.innerHTML = data.username + " : " + data.msg
+            chat.append(p);            
+        })
+
+        function enviar() {
+            var msgField = document.getElementById("msg");
+            var usernameField = document.getElementById("username")
+
+            var msg = msgField.value;
+            var username = usernameField.value;
+            cleanAll()
+
+            socket.emit("msg", {msg,username})
+
+        }
+
+
+        function cleanAll() {
+            var msg = document.getElementById("msg");
+            var username = document.getElementById("username");
+            console.log(username.value)
+            msg.innerHTML = "asd"
+            username.innerHTML = "asaaaaaaaaaaaa"
+        }
+</script>
+</html>  
